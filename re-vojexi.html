@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vojexi - Online Banking</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome to Vojexi</h1>
+    <nav>
+      <a href="#signup">Sign Up</a>
+      <a href="#login">Login</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Sign-Up Form -->
+    <section id="signup">
+      <h2>Create Your Vojexi Account</h2>
+      <form id="signup-form">
+        <!-- Step 1 -->
+        <div class="form-step" id="step-1">
+          <h3>Step 1: Basic Details</h3>
+          <label for="first-name">First Name:</label>
+          <input type="text" id="first-name" name="first-name" required>
+
+          <label for="last-name">Last Name:</label>
+          <input type="text" id="last-name" name="last-name" required>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+
+          <button type="button" onclick="nextStep(2)">Next</button>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="form-step" id="step-2" style="display: none;">
+          <h3>Step 2: Address Details</h3>
+          <label for="country">Country:</label>
+          <input type="text" id="country" name="country" required>
+
+          <label for="address">Address:</label>
+          <input type="text" id="address" name="address" required>
+
+          <label for="zip">ZIP Code:</label>
+          <input type="text" id="zip" name="zip" required>
+
+          <label for="dob">Date of Birth:</label>
+          <input type="date" id="dob" name="dob" required>
+
+          <button type="button" onclick="nextStep(3)">Next</button>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="form-step" id="step-3" style="display: none;">
+          <h3>Step 3: Phone Verification</h3>
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" required>
+
+          <button type="button" onclick="sendOTP()">Send OTP</button>
+          <input type="text" id="otp" name="otp" placeholder="Enter OTP" required>
+          <button type="button" onclick="nextStep(4)">Next</button>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="form-step" id="step-4" style="display: none;">
+          <h3>Step 4: Email Verification</h3>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <button type="button" onclick="sendConfirmation()">Confirm Email</button>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="form-step" id="step-5" style="display: none;">
+          <h3>Step 5: Upload ID Card</h3>
+          <label for="id-front">Upload Front of ID:</label>
+          <input type="file" id="id-front" name="id-front" required>
+
+          <label for="id-back">Upload Back of ID:</label>
+          <input type="file" id="id-back" name="id-back" required>
+
+          <button type="submit">Complete Sign-Up</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Login Form -->
+    <section id="login">
+      <h2>Login to Your Account</h2>
+      <form id="login-form">
+        <label for="login-email">Email:</label>
+        <input type="email" id="login-email" name="login-email" required>
+
+        <label for="login-password">Password:</label>
+        <input type="password" id="login-password" name="login-password" required>
+
+        <button type="submit">Login</button>
+      </form>
+    </section>
+
+    <!-- Account Dashboard -->
+    <section id="dashboard" style="display: none;">
+      <h2>Your Account</h2>
+      <p>Welcome back! Your balance is: <strong>$5,000.00</strong></p>
+      <button onclick="sendMoney()">Send Money</button>
+      <button onclick="payBills()">Pay Bills</button>
+      <button onclick="logout()">Logout</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Vojexi. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
